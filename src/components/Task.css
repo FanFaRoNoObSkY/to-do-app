@@ -1,0 +1,21 @@
+.taskContainer {
+    min-width: 50%;
+    border: 2px var(--gray) solid;
+    padding: 1vh;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px var(--black);
+    transition: 0.2s;
+    display: flex;
+
+}
+
+.taskContainer:hover {
+    transform: scale(1.02);
+}
+.taskDescription {
+
+}
+.taskActions {
+
+}

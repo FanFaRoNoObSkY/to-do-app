@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useRef, useState } from 'react'
+import ToDoList from './components/ToDoList'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState([])
+  const inputRef = useRef()
+
+  const addHandler = (e) => {
+    // Prevent submit on click
+    e.preventDefault()
+    if(inputRef.current.value!="") {
+      const newTaskList =  tasks.concat({desc:inputRef.current.value, date:new Date()})
+      setTasks(newTaskList)
+      inputRef.current.value = ""
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="appContainer">
+      <div className="header">
+        <h1 className="white-text">To do app</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <form className="formContainer">
+        <input className="text-input" ref={inputRef} type="text" placeholder='Homework, play, meeting, etc'/> 
+        <input className="button" type="submit" value="Add"onClick={addHandler}/>
+      </form>
+      <div className="listContainer">
+        <ToDoList tasks={tasks}/>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 

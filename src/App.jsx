@@ -10,7 +10,7 @@ function App() {
     // Prevent submit on click
     e.preventDefault()
     if(inputRef.current.value!="") {
-      const newTaskList =  tasks.concat({desc:inputRef.current.value, date:new Date()})
+      const newTaskList =  [{desc:inputRef.current.value, date:new Date()}].concat(tasks)
       setTasks(newTaskList)
       inputRef.current.value = ""
     }

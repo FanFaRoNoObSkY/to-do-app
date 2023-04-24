@@ -1,21 +1,41 @@
 .taskContainer {
     min-width: 50%;
-    border: 2px var(--gray) solid;
+    background-color: var(--black);
     padding: 1vh;
-    margin: 5px;
+    margin: 10px;
     border-radius: 5px;
-    box-shadow: 2px 2px 7px var(--black);
-    transition: 0.2s;
+    box-shadow: 1px 1px 3px var(--black);
+    border: 1px var(--green) solid;
+    transition: 0.4s;
     display: flex;
-
+    justify-content: space-between;
+    align-items: center;
 }
 
+.taskTitle {
+    font-size: large;
+}
+.date {
+    font-size: smaller;
+    font-weight: lighter;
+}
 .taskContainer:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 .taskDescription {
 
 }
 .taskActions {
+    border-radius: 50%;
+    padding: 10px;
+    width: 24px;
+    height: 24px;
+    border: 1px transparent solid;
+    transition: 0.2s;
+}
 
+.taskActions:hover {
+    background-color: var(--black-lighter);
+    border: 1px var(--green) solid;
+    cursor: pointer;
 }

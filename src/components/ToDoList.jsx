@@ -1,12 +1,12 @@
 import Task from './Task'
 
-const ToDoList = ({tasks}) => {
+const ToDoList = ({tasks, callback}) => {
     return (
         <div>
             <ul>
                 {tasks.map((elem,i)=>{
                     return (
-                        <li key={i}><Task task={elem}/></li>
+                        <li key={i}><Task task={elem} callback={()=>callback(i)}/></li>
                     )
                 })}
             </ul>

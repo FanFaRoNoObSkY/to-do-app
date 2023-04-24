@@ -1,18 +1,20 @@
 import './Task.css'
-const Task = ({task:{desc, date}}) => {
+import checkSVG from '/check.svg'
+const Task = ({task:{desc, date}, callback}) => {
     return (
         <div className="taskContainer">
             <div className="taskDescription">
-            <h3>
-                {desc}
-            </h3>
-            <span>
-                {date.getHours()}:{date.getMinutes()}-{date.getDate()}-{date.getMonth()+1}-{date.getFullYear()}
-            </span>
- 
+                <div className="white-text taskTitle">
+                    {desc}
+                </div>
+                <span className="white-text date">
+                    Date: {date.getHours()}:{date.getMinutes()}-{date.getDate()}-{date.getMonth()+1}-{date.getFullYear()}
+                </span>
             </div>
             <div className="taskActions">
-                <a href="#">Mark as done</a>
+                <a href="#" onClick={callback}>
+                    <img src={checkSVG} alt="checkIcon"/>
+                </a>
             </div>
         </div>
     )

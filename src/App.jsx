@@ -16,6 +16,13 @@ function App() {
     }
   }
 
+  const doneHandler = (index) => {
+    const newTaskList = tasks.filter((e,i)=>{
+      return i!=index
+    })
+    setTasks(newTaskList)
+  }
+
   return (
     <div className="appContainer">
       <div className="header">
@@ -26,7 +33,13 @@ function App() {
         <input className="button" type="submit" value="Add"onClick={addHandler}/>
       </form>
       <div className="listContainer">
-        <ToDoList tasks={tasks}/>
+        {
+          tasks.length>0?<ToDoList tasks={tasks} callback={doneHandler}/>
+          :
+          <div className='gray-text comment'>
+            There are no more pending tasks
+          </div>
+        }
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --black: #131B23;
+  --black-lighter: #1d242b;
   --gray: #839B93;
   --white: #E9F1F7;
   --blue: #2274A5;
@@ -12,7 +13,7 @@
   margin: 0px;
 }
 body {
-  background-color: var(--white);
+  background-color: var(--black-lighter);
 }
 
 .black-text {
@@ -45,7 +46,7 @@ input {
   border: 1px var(--green) solid;
   border-radius: 10px;
   min-width: 120px;
-  background-color: var(--white);
+  background-color: var(--black);
   transition: 0.2s;
   color: var(--green);
   font-weight: bolder;
